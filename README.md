@@ -1,6 +1,6 @@
-# PROYECTO SIMULACIÓN COMPUTACIONAL
+# PROYECTO FINAL SIMULACIÓN COMPUTACIONAL - UNIVERSIDAD DEL VALLE
 
-Este repositorio contiene la implementación en Python de un programa para determinar el número de cajeros requeridos en un banco, considerando diferentes variantes. El objetivo principal es mantener una utilización de los cajeros entre el 85% y el 60%. A continuación, se detallan las variantes consideradas y cómo ejecutar el programa.
+Este repositorio contiene la implementación en Python de un programa para determinar el número de cajeros requeridos en un banco, considerando diferentes variantes. El objetivo principal es mantener una utilización de los cajeros entre el 85% y el 60%. Durante la implementación, se aplicaron los conceptos y técnicas vistos a lo largo de las clases de la asignatura de Simulación Computacional en la Universidad del Valle.
 
 ## Variantes
 
@@ -10,7 +10,7 @@ Este repositorio contiene la implementación en Python de un programa para deter
 
 3. **Sistema con colas separadas por cada cajero:** En esta variante, se implementa un sistema con una cola de espera separada para cada cajero. Si un cajero se desocupa, ayuda a despachar a los demás cajeros.
 
-4. **Transacciones enviadas por la gerencia:** Los cajeros también deben realizar transacciones enviadas por la gerencia. Estas transacciones llegan cada 30 minutos y son atendidas por el cajero que termine primero la atención con el cliente actual.
+4. **Transacciones enviadas por la gerencia:** Los cajeros también deben realizar transacciones enviadas por la gerencia. Estas transacciones llegan en un valor "X" de minutos, dicho valor estará entre 20 y 40 minutos y serán atendidas por el cajero que termine primero la atención con el cliente actual.
 
 5. **Interrupción por transacciones de la gerencia:** Las transacciones enviadas por la gerencia interrumpen el trabajo de uno de los cajeros seleccionado al azar.
 
@@ -28,3 +28,9 @@ Este repositorio contiene la implementación en Python de un programa para deter
 
    ```bash
    python main.py
+
+5. En la ventana ingresa a "Iniciar Simulación"
+
+6. Ingresa el número de cajeros, y presiona "Iniciar simulación"
+
+7. En la parte derecha se visualizan algunos datos. En la última linea se evidencia si cumple o no con la tasa de utilización propuesta en el enunciado del proyecto.
