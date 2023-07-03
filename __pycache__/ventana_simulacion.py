@@ -2,7 +2,6 @@ import implementacion as impl
 import tkinter as tk
 import sys
 from tkinter import messagebox
-import csv
 
 class RedirectText:
     def __init__(self, text_widget):
@@ -57,19 +56,10 @@ class VentanaSimulacion(tk.Tk):
         # Redirigir la salida estándar a la Text Area
         sys.stdout = RedirectText(self.text_area)
 
-
-     
-
     def ejecutar_simulacion(self):
         # Obtener el número de cajeros ingresado
         num_cajeros_str = self.entry_cajeros.get()
-        file = open("resultados.csv", "w")
-        file.close()
-       
-        with open('resultados.csv', mode='a', newline='') as file:
-         writer = csv.writer(file)
-         writer.writerow(("N_cajeros","N_clientes","% Utilizacion","N_clientes_perdidos","N_clientes_tarjeta","T_total"))   
-        
+
         if not num_cajeros_str:
             # El campo está vacío
             messagebox.showerror("Error", "Ingrese un valor para el número de cajeros.")
@@ -87,22 +77,15 @@ class VentanaSimulacion(tk.Tk):
             return
 
         # Ejecutar la simulación una vez
-        impl.run_simulacion(num_cajeros=num_cajeros,limite_cola=10)
+        impl.run_simulacion(num_cajeros=num_cajeros, limite_cola=10) ##LIMITE DE COLA
 
         # Mostrar mensaje de ejecución exitosa
         messagebox.showinfo("Simulación completada", "La simulación se ha completado y los resultados se han guardado.")
-   
-     
+
     def ejecutar_simulaciones(self):
         # Obtener el número de cajeros ingresado
         num_cajeros_str = self.entry_cajeros.get()
-        file = open("resultados.csv", "w")
-        file.close()
-       
-        with open('resultados.csv', mode='a', newline='') as file:
-         writer = csv.writer(file)
-         writer.writerow(("N_cajeros","N_clientes","% Utilizacion","N_clientes_perdidos","N_clientes_tarjeta","T_total"))   
-         
+
         if not num_cajeros_str:
             # El campo está vacío
             messagebox.showerror("Error", "Ingrese un valor para el número de cajeros.")
@@ -140,7 +123,7 @@ class VentanaSimulacion(tk.Tk):
 
         # Ejecutar las simulaciones
         for _ in range(num_simulaciones):
-            impl.run_simulacion(num_cajeros=num_cajeros, limite_cola=10)
+            impl.run_simulacion(num_cajeros=num_cajeros, limite_cola=10) ## LIMTE DE COLA
 
         # Mostrar mensaje de ejecución exitosa
         messagebox.showinfo("Simulaciones completadas", f"Se han ejecutado {num_simulaciones} simulaciones y los resultados se han guardado.")

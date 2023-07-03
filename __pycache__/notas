@@ -1,0 +1,10 @@
+#Changelog
+
+Actualicé la función imprimir_resultados para incluir los parámetros num_clientes_perdidos y num_clientes_con_tarjeta en la impresión correspondiente.
+En la función run_simulacion, calculé el porcentaje de utilización del banco de manera correcta.
+Actualicé la llamada a la función imprimir_resultados en la función run_simulacion para pasar el parámetro banco.clientes_perdidos.
+
+Se añadió el limite de cola como 10, si se supera el timepo de espera se da por perdido el cliente
+Se cambió la generación del tiempo de servicio, ahora se genera aleatoriamente con una media determinada
+
+La llegada de los clientes se hace a con la distribución de Poisson
