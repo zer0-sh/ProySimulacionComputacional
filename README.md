@@ -6,7 +6,7 @@ Este repositorio contiene la implementación en Python de un programa para deter
 
 1. **Clientes que se van por encontrar una cola larga:** Si un cliente llega y encuentra una cola con más de 10 personas, decide irse sin ser atendido. El programa proporcionará el número de personas que no son atendidas debido a esta razón.
 
-2. **Diferentes transacciones de los clientes:** Los clientes pueden realizar tres tipos de transacciones: consignaciones (40% de los clientes), consultas (10%) y retiros (50%). Cada tipo de transacción requiere un tiempo de atención diferente, que sigue una distribución exponencial con medias de 4, 1 y 3 minutos, respectivamente.
+2. **Diferentes transacciones de los clientes:** Los clientes pueden realizar tres tipos de transacciones: consignaciones (40% de los clientes), consultas (10%) y retiros (50%). Cada tipo de transacción requiere un tiempo de atención diferente, que sigue una distribución exponencial con medias de 4, 1 y 3 minutos, respectivamente. Este tiempo de atención se genera aleaotoriamente.
 
 3. **Sistema con colas separadas por cada cajero:** En esta variante, se implementa un sistema con una cola de espera separada para cada cajero. Si un cajero se desocupa, ayuda a despachar a los demás cajeros.
 
@@ -31,6 +31,8 @@ Este repositorio contiene la implementación en Python de un programa para deter
 
 5. En la ventana ingresa a "Iniciar Simulación"
 
-6. Ingresa el número de cajeros, y presiona "Iniciar simulación"
+6. Ingresa el número de cajeros e ingresa el número de simulaciones a realizar y presiona "Iniciar simulación".
 
 7. En la parte derecha se visualizan algunos datos. En la última linea se evidencia si cumple o no con la tasa de utilización propuesta en el enunciado del proyecto.
+
+8. Finalmente los resultados saldrán y serán almacenados en un archivo llamado Resultados.csv, para poder ser leidos y analizados.
