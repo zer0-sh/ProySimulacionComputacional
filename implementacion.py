@@ -26,7 +26,7 @@ class Banco(object):
     def __init__(self, env, num_cajeros, limite_cola):
         self.env = env
         self.cajeros = simpy.Resource(env, num_cajeros)
-        self.cola = simpy.Store(env, capacity=limite_cola)
+        self.cola = simpy.Store(env, capacity=limite_cola) ## SE LIMITA LA CAPACIDAD DE LA COLA A UN VALOR QUE SE INGRESA EN LA CREACIÓN DE LA INSTANCIA BANCO
         self.clientes_perdidos = 0
         self.num_clientes_atendidos = 0
         self.num_clientes_con_tarjeta = 0
