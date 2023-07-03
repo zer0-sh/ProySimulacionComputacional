@@ -124,7 +124,3 @@ def run_simulacion(num_cajeros):
 
 # Ejecutar simulación con 1 cajero
 #run_simulacion(1)
-
-numero_ejecuciones = 5
-for _ in range(numero_ejecuciones):
-    run_simulacion(1)
