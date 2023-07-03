@@ -1,6 +1,7 @@
 import simpy
 import random
 import numpy as np
+import csv
 
 ### GENERACION DEL TIEMPO DE SERVICIO ALEATORIAMENTE
 
@@ -81,7 +82,15 @@ class Banco(object):
     def get_con_tarjeta(self):
         return random.random() < probabilidad_tarjeta  # Retorna True si el número aleatorio generado es menor a la probabilidad de tener tarjeta
 
-def imprimir_resultados(num_cajeros, num_clientes, porcentaje_utilizacion, num_clientes_perdidos, num_clientes_con_tarjeta, tiempo_atencion_total):
+def guardar_resultados(num_cajeros, num_clientes, porcentaje_utilizacion, num_clientes_perdidos,
+                       num_clientes_con_tarjeta, tiempo_atencion_total):
+    with open('resultados.csv', mode='a', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow([num_cajeros, num_clientes, porcentaje_utilizacion, num_clientes_perdidos,
+                         num_clientes_con_tarjeta, tiempo_atencion_total])
+
+def imprimir_resultados(num_cajeros, num_clientes, porcentaje_utilizacion, num_clientes_perdidos,
+                        num_clientes_con_tarjeta, tiempo_atencion_total):
     print("Resultados de la simulación:")
     print(f"Número de cajeros: {num_cajeros}")
     print(f"Número de clientes atendidos: {num_clientes}")
@@ -94,6 +103,7 @@ def imprimir_resultados(num_cajeros, num_clientes, porcentaje_utilizacion, num_c
         print("Cumple con la tasa de utilización")
     else:
         print("No cumple con la tasa de utilización")
+    print("----------------------------------------------------------------------------------")
 
 def run_simulacion(num_cajeros):
     env = simpy.Environment()  # Crea el entorno de simulación
@@ -104,9 +114,17 @@ def run_simulacion(num_cajeros):
     # Cálculo del porcentaje de utilización del banco
     porcentaje_utilizacion = (banco.tiempo_atencion_total / (num_cajeros * tiempo_simulacion)) * 100
 
+    # Guardar resultados en archivo CSV
+    guardar_resultados(num_cajeros, banco.num_clientes_atendidos, porcentaje_utilizacion, banco.clientes_perdidos,
+                       banco.num_clientes_con_tarjeta, banco.tiempo_atencion_total)
+
     # Imprimir resultados
     imprimir_resultados(num_cajeros, banco.num_clientes_atendidos, porcentaje_utilizacion, banco.clientes_perdidos,
                         banco.num_clientes_con_tarjeta, banco.tiempo_atencion_total)
 
 # Ejecutar simulación con 1 cajero
-run_simulacion(1)
+#run_simulacion(1)
+
+numero_ejecuciones = 5
+for _ in range(numero_ejecuciones):
+    run_simulacion(1)
