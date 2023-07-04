@@ -2,9 +2,10 @@ import tkinter as tk
 from tkinter import messagebox
 import subprocess
 
+
 def iniciar_simulacion():
     subprocess.Popen(["python", "ventana_simulacion.py"])
-    #messagebox.showinfo("Todo bien","Ejecutando simulación...")
+    # messagebox.showinfo("Todo bien","Ejecutando simulación...")
     ventana.destroy()
 
 
@@ -22,9 +23,11 @@ Variantes:
 
     messagebox.showinfo("Enunciado del Proyecto", enunciado)
 
+
 def acerca_de():
-    info = "Proyecto realizado por:\n\n- Steven Muñoz \n- Stephany Castro \n- Valentina Hurtado \n- Camilo Azcarate \n\n Universidad del Valle \n Simulación Computacional \n 2023-1"
+    info = "Proyecto realizado por:\n\n- Steven Muñoz \n- Estefany Castro \n- Valentina Hurtado \n- Camilo Azcarate \n\n Universidad del Valle \n Simulación Computacional \n 2023-1"
     messagebox.showinfo("Acerca de", info)
+
 
 # Crear la ventana principal
 ventana = tk.Tk()
@@ -40,15 +43,18 @@ frame_botones = tk.Frame(ventana, bg="#403e4d")
 frame_botones.pack(expand=True)
 
 # Función para abrir una nueva ventana de simulación
-boton_simulacion = tk.Button(frame_botones, text="Iniciar Simulación", font=fuente, bg="#e8e8e8", command=iniciar_simulacion)
+boton_simulacion = tk.Button(frame_botones, text="Iniciar Simulación",
+                             font=fuente, bg="#e8e8e8", command=iniciar_simulacion)
 boton_simulacion.pack(pady=10)
 
 # Función para mostrar el enunciado del proyecto
-boton_enunciado = tk.Button(frame_botones, text="Mostrar Enunciado", font=fuente, bg="#e8e8e8", command=mostrar_enunciado)
+boton_enunciado = tk.Button(frame_botones, text="Mostrar Enunciado",
+                            font=fuente, bg="#e8e8e8", command=mostrar_enunciado)
 boton_enunciado.pack(pady=10)
 
 # Función para mostrar información sobre el proyecto
-boton_acerca_de = tk.Button(frame_botones, text="Acerca de", font=fuente, bg="#e8e8e8", command=acerca_de)
+boton_acerca_de = tk.Button(
+    frame_botones, text="Acerca de", font=fuente, bg="#e8e8e8", command=acerca_de)
 boton_acerca_de.pack(pady=10)
 
 # Centrar el frame de los botones en la ventana

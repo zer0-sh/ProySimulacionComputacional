@@ -87,12 +87,17 @@ class Banco(object):
     def get_con_tarjeta(self):
         return random.random() < probabilidad_tarjeta
 
+
 def guardar_resultados(num_cajeros, num_clientes, porcentaje_utilizacion, num_clientes_perdidos,
                        num_clientes_con_tarjeta, tiempo_atencion_total):
     with open('resultados.csv', mode='a', newline='') as file:
         writer = csv.writer(file)
+        if file.tell() == 0:  # Verificar si el archivo está vacío
+            writer.writerow(['Num Cajeros', 'Num Clientes', 'Porcentaje Utilizacion', 'Num Clientes Perdidos',
+                             'Num Clientes con Tarjeta', 'Tiempo Atencion Total'])
         writer.writerow([num_cajeros, num_clientes, porcentaje_utilizacion, num_clientes_perdidos,
                          num_clientes_con_tarjeta, tiempo_atencion_total])
+
 
 def imprimir_resultados(num_cajeros, num_clientes, porcentaje_utilizacion, num_clientes_perdidos,
                         num_clientes_con_tarjeta, tiempo_atencion_total):
